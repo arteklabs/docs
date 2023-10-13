@@ -1,0 +1,24 @@
+name: Docker Image CICD
+
+on:
+  push:
+    branches: ["latest"]
+  pull_request:
+    branches: ["latest"]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Log in to Docker Hub
+        run: docker login -u arteklabs -p ${{ secrets.ADMIN_DOCKERHUB_DOCS_ARTEKLABS }}
+        # Make sure to use the correct Docker Hub username secret.
+
+      - name: Build the Docker image
+        run: docker build . --file Dockerfile --tag arteklabs/docs:$(date +%s) --tag arteklabs/docs:latest
+
+      - name: Push the Docker image to the repository
+        run: docker push arteklabs/docs:latest
