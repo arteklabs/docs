@@ -37,3 +37,9 @@ $ docker exec -it redis.dditreduk redis-cli
 127.0.0.1:6379> KEYS *
 1) "tst"
 ```
+# Clear resources
+
+```
+$ docker-compose down --remove-orphans
+$ docker-compose down --rmi all
+```
