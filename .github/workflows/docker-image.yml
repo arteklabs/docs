@@ -7,7 +7,8 @@ on:
     branches: ["latest"]
 
 env:
-  REGISTRY: "dditreduk/nnrco"
+  NAMESPACE: "dditreduk"
+  REPOSITORY: "nnrco"
 
 jobs:
   build:
@@ -17,10 +18,10 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Log in to Docker Hub
-        run: docker login -u arteklabs -p ${{ secrets.ADMIN_DDITREDUK }}
+        run: docker login -u $NAMESPACE -p ${{ secrets.ADMIN_DDITREDUK }}
 
       - name: Build app
-        run: docker build . --file Dockerfile --tag $REGISTRY:$(date +%s) --tag $REGISTRY:latest
+        run: docker build . --file Dockerfile --tag $NAMESPACE/$REPOSITORY:$(date +%s) --tag $NAMESPACE/$REPOSITORY:latest
 
       - name: Push the Docker image to the repository
-        run: docker push $REGISTRY:latest
+        run: docker push $NAMESPACE/$REPOSITORY:latest
