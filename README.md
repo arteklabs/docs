@@ -1,3 +1,5 @@
+[![Docker Image CICD](https://github.com/arteklabs/docs/actions/workflows/dockerhub.yml/badge.svg)](https://github.com/arteklabs/docs/actions/workflows/dockerhub.yml)
+
 # Getting Started
 
 To run this app, create a file `compose.yaml` with the following content:
