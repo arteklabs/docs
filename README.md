@@ -16,13 +16,13 @@ services:
       dockerfile: Dockerfile
     container_name: app.dditreduk
     networks:
-      - network.app
+      - network.dditreduk
     depends_on:
       - redis
 
 networks:
   network.dditreduk:
-  name: network.dditreduk
+    name: network.dditreduk
 ```
 
 Run the app with:
