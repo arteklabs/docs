@@ -8,6 +8,8 @@ services:
   redis:
     image: redis
     container_name: redis.dditreduk
+    networks:
+      - network.dditreduk
     ports:
       - "6379:6379"
   app:
