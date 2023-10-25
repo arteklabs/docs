@@ -30,7 +30,10 @@ Run the app with:
 ```
 $ docker-compose up -d
 $ alias red="docker run -it --rm dditreduk/nnrco:latest python app.py"
-$ red greet
-Your name: diogo 
-Hello, Hello, diogo!!
+$ red add --key tst --value tst
+added (tst, tst)
+$ docker exec -it redis.dditreduk redis-cli
+
+127.0.0.1:6379> KEYS *
+1) "tst"
 ```
