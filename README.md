@@ -11,9 +11,7 @@ services:
     ports:
       - "6379:6379"
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: dditreduk/nnrco:latest
     container_name: app.dditreduk
     networks:
       - network.dditreduk
