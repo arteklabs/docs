@@ -1,13 +1,17 @@
-FROM python:3.9-slim
+# app container
+# Use a Python base image
+FROM python:3.8
 
-# Use an official Python runtime as a parent image
-FROM python:3
-
-# Set the working directory in the container
+# Set the working directory
 WORKDIR /app
 
-# Copy the current directory contents into the container at /app
-COPY . /app
+COPY requirements.txt /app/
 
-# Run the Python script when the container launches
-CMD ["python", "app.py"]
+# Copy the application code into the container
+COPY app.py /app/
+
+# global deps
+RUN pip install -r ../app/requirements.txt
+
+# Specify the entry point for the container
+CMD ["bash"]
