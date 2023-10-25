@@ -27,7 +27,7 @@ Run the app with:
 
 ```
 $ docker-compose up -d
-$ alias red="docker run -it --rm app.dditreduk python app.py"
+$ alias red="docker run -it --rm dditreduk/nnrco:latest python app.py"
 $ red greet
 Your name: diogo 
 Hello, Hello, diogo!!
